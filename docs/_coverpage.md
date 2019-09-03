@@ -2,6 +2,6 @@
 
 > 持续学习
 
-[GitHub](https://github.com/docsifyjs/docsify/)
+[GitHub](https://github.com/deeduan/study-note)
 [Get Started](zh-cn/php/index.md)
 
