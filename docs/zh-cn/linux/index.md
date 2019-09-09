@@ -14,7 +14,7 @@ ps -e -ostat,pid,ppid,pgid,sid,cmd | grep php
 
 # 结果
 24247   650   649 24211 grep --color=auto php
-    1 25019 25019 25019 php-fpm: master process (/etc/php-fpm.conf)
+    1 25019 25019 25019 php-fpm: master process
 25019 25020 25019 25019 php-fpm: pool www
 25019 25021 25019 25019 php-fpm: pool www
 25019 25022 25019 25019 php-fpm: pool www
@@ -31,7 +31,6 @@ ps -e -ostat,pid,ppid,pgid,sid,cmd | grep php
 netstat -altnp
 
 # 结果
-Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
 tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN      25019/php-fpm: mast 
 tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      25283/redis-server  
