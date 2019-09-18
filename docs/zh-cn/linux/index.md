@@ -41,3 +41,24 @@ tcp6       0      0 :::3306                 :::*                    LISTEN      
 ```
 
 查看有多少连接建立, 并且查看状态, 看看time_wait是不是很多
+
+
+### 防火墙
+
+小胖反应t子莫名其妙的不能用了, 检查ip - 发现ip能ping通,木有被q;检查端口, 发现端口被q了~.于是需要换端口，关闭之前的端口。以前开发的是9123端口，现在改成9124端口。端口修改完毕后重启机器生效~ 
+
+```shell
+# 查看端口是否开启
+firewall-cmd --query-port=80/tcp --zone=public
+# 添加端口开启
+firewall-cmd --zone=public --add-port=9124/tcp --permanent
+# 删除端口开启
+firewall-cmd --zone=public --remove-port=9123/tcp --permanent
+# 重载
+firewall-cmd --reload
+
+# 查看开启的lists
+firewall-cmd --zone=public --list-ports
+```
+
+ 
