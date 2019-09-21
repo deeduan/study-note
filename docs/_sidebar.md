@@ -1,7 +1,7 @@
 * [PHP](zh-cn/php/index)
 * [MySQL](zh-cn/mysql/index)
 * [Redis](zh-cn/mysql/index)
-* [Nginx](zh-cn/mysql/index)
+* [Nginx](zh-cn/nginx/index.md)
 * [Linux](zh-cn/linux/index.md)
 * [算法](zh-cn/algorithm/index.md)
 * [网络](zh-cn/network/index.md)
