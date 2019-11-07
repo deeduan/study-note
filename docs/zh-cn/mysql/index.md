@@ -1,3 +1,31 @@
+# MySQL文件
+
+## 非常规性整理
+使用mysql的时候, 我们会去了解一些引擎和表的相关内容。下面就是对针对mysql的相关文件进行简单的介绍。
+
+* ibdata1文件: innodb共享表空间文件，参数innodb_data_file_path提供配置
+* ib_logfile0文件: 重做日志文件组1文件1
+* ib_logfile1文件: 重做日志文件组1文件2
+* ib_buffer_pool文件:
+* ibtmp1文件:
+
+二进制bin-log记录的是逻辑日志, 例如各种sql的执行呀. 重做日志记录的是物理日志, 记录的是对磁盘的修改。
+
+## 错误日志
+
+通过错误日志可以定位到一些问题, 性能优化, socket等.. 查看错误日志文件存放的目录
+
+```
+show variables like "log_error%";
+```
+
+## 慢查询日志
+
+
+## 二进制日志
+
+
+
 # 创建用户,并且修改默认的密码验证方式
 CREATE USER 'dee'@'localhost' IDENTIFIED WITH mysql_native_password BY 'jack_dee!';
 # 授权
@@ -249,5 +277,37 @@ alter table admin drop index name_gender;
 
 
 # 数据库中间件 MyCAT
+
+
+
+# MySQL在linux上的学习笔记
+
+
+事务包括:
+
+* 原子性 - redo log , 重做日志实现
+* 一致性 - undo log , 
+* 持久性 - redo log , 重做日志实现
+* 隔离性 - 隔离性使用锁来实现的
+
+redo 恢复提交事务修改的页操作， undo 恢复到一行记录的某一个版本。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
