@@ -49,17 +49,45 @@ show variables like "innodb_log%";
 
 ## 主从复制
 
-环境: 一台阿里云机器, 一台腾讯云机器; 阿里云机器是master, 腾讯云机器做slave
+主从复制使用的是二进制文件binlog。环境: 一台阿里云机器, 一台腾讯云机器; 阿里云机器是master, 腾讯云机器做slave
 
+主机配置文件:
 
+```my.cnf
+# 开启bin-log
+log-bin=mysql_bin
+binlog_format=mixed
+server-id=1
+```
 
+从机配置文件:
 
+```
+# 开启bin log
+log-bin=mysql_bin
+binlog_format=mixed
+server-id=2
+# 设置从库只读
+read_only=1
+```
+
+> 注意配置文件当中的server-id 是数字 只要不冲突即可
+
+首先要在主库创建一个授权访问的用户, 给与主从复制的权限; 在从库配置允许同步主库信息:
+
+```
+CHANGE MASTER TO MASTER_HOST='your master ip',MASTER_USER='jackdee',MASTER_PASSWORD='Jack_dee13!',MASTER_LOG_FILE='mysql_bin.000003',MASTER_LOG_POS=154;
+
+```
+
+然后`start slave`;使用`show slave status`查看状态即可;
 
 
 # 创建用户,并且修改默认的密码验证方式
-CREATE USER 'dee'@'localhost' IDENTIFIED WITH mysql_native_password BY 'jack_dee!';
+CREATE USER 'jackdee'@'%' IDENTIFIED WITH mysql_native_password BY 'Jack_dee123!';
+
 # 授权
-GRANT ALL privileges ON *.* TO 'dee'@'localhost';
+GRANT ALL privileges ON *.* TO 'jackdee'@'%';
 
 # 所以最好的管理策略就是创建一个用户,只给这个用户某一个db的管理权限
 
