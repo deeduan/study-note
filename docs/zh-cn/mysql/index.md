@@ -1,5 +1,7 @@
 # MySQL
 
+https://www.cnblogs.com/huchong/p/9152117.html
+
 ## 非常规性整理
 使用mysql的时候, 我们会去了解一些引擎和表的相关内容。下面就是对针对mysql的相关文件进行简单的介绍。
 
@@ -59,6 +61,7 @@ log-bin=mysql_bin
 binlog_format=mixed
 server-id=1
 ```
+
 
 从机配置文件:
 
